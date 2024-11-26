@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!--projecttitle--><title>SITS  tour</title><!--projecttitle-end-->
+		<!--projectdescription--><meta name="description" content="New 3Sixty Virtual Tour Project"><!--projectdescription-end-->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, shrink-to-fit=no">
+		
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<!-- Insert this line above script imports  -->
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		
+		<script src="imagedata.js"></script>
+		<script src="jquery.js"></script>
+		<script src="three.min.js"></script>
+		<script src="panolens.min.js"></script>
+		
+		<!-- Insert this line after script imports -->
+		<script>if (window.module) module = window.module;</script>
+		
+		<style>
+		
+			
+						
+			/* SCROLLBAR STYLING */
+			/* width */
+			::-webkit-scrollbar {
+				width: 0.25em;
+				height: 0.25em;
+			}
+			/* Track */
+			::-webkit-scrollbar-track {
+				background: #2c3643; 
+			}
+			/* Handle */
+			::-webkit-scrollbar-thumb {
+				background: #0d9e59; 
+				transition: background .5s;
+			}
+			/* Handle on hover */
+			::-webkit-scrollbar-thumb:hover {
+				background: #00e075; 
+			}
+
+
+			html, body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: #000;
+				color; black;
+			}
+
+			a:link, a:visited{
+				color: #bdc3c7;	
+			}
+
+			.fullwrapper{
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: black;
+			}
+			
+			#container {
+                width: 100%;
+                height: 100%;
+            }
+			
+			#tmp{
+				position: fixed;
+				top: 0;
+				left: 0; 
+				right: 0;
+				bottom: 0;
+				padding: 3em;
+				background-color: rgba(0,0,0,.5);
+				backdrop-filter: blur(5px);
+				display: none;
+			}
+		</style>
+	</head>
+	<body id="body">
+	    <div id="container" style="color: black;"></div>
+    	
+		
+		
+		<!--customhtml--><div class='customhotspot' id='maingate'></div><div class='customhotspot' id='Neartothemaingate'></div><div class='customhotspot' id='nearxerocenter'></div><div class='customhotspot' id='furxerocenter'></div><div class='customhotspot' id='civilbranch'></div><div class='customhotspot' id='eng'></div><div class='customhotspot' id='cafeteria'></div><div class='customhotspot' id='futherfromcomplift'></div><div class='customhotspot' id='OutsideofLibrary'></div><div class='customhotspot' id='Nearcomplift'></div><div class='customhotspot' id='Nearseminarhall'></div><div class='customhotspot' id='Compseminarhall'></div><div class='customhotspot' id='insideLibrary'></div><div class='customhotspot' id='Neargirlshostel'></div><div class='customhotspot' id='Nearmechanicalhall'></div><div class='customhotspot' id='Machineshop'></div><div class='customhotspot' id='Workshop'></div><div class='customhotspot' id='Fluidmechanicsandmachinerylab'></div><div class='customhotspot' id='Turbomachinelab'></div><div class='customhotspot' id='Concertetechnologylab'></div><div class='customhotspot' id='compHodoffice'></div><div class='customhotspot' id='FirstLabfromHODoffice'></div><div class='customhotspot' id='lab1'></div><!--customhtml-end-->
+		
+		<div id="tmp">
+			<div style="width: 100%; height: 100%; overflow: hidden; overflow-y: auto; box-sizing: border-box; position: relative;" id="tmpcontent"></div>
+			<div class="mediaclosebutton" onclick="hideTemp()"><i class="fa fa-times-circle"></i></div>
+		</div>
+
+		<div id="loading" class="fullwrapper" style="display: table; width: 100%; height: 100%;">
+    		<div style="display: table-cell; vertical-align: middle; text-align: center; color: white; font-size: 30px; padding: 50px;">
+    			<!--loadingtext-->Loading...<!--loadingtext-end-->
+				<div id="loadingperc" style="font-size:12px;"></div>
+    		</div>
+    	</div>
+		
+    	<script>
+			
+            var container = document.querySelector( '#container' );
+			/*panolens*/
+var viewer = new PANOLENS.Viewer( { container: container , controlBar: false,  output: 'console' , autoHideInfospot: false, } );
+/*panolens-end*/
+			
+			viewer.addUpdateCallback(function(){});
+			
+			/*panoramas*/
+var maingate = new PANOLENS.ImagePanorama( "panoramas/maingate.jpg" );
+			maingate.addEventListener('progress', onProgress);
+			maingate.addEventListener('load', function(e){
+				endLoading();
+			});
+			maingate.addEventListener('enter', function(e){
+				endLoading();
+			});
+			maingate.addEventListener('click', function(e){
+			});
+
+var infospotmaingate0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotmaingate0.position.set( 210.73, -105.36, -4984.82 );
+					maingate.add(infospotmaingate0);
+infospotmaingate0.addEventListener('click', function(){
+ChangePanorama('Neartothemaingate');
+});
+viewer.add( maingate );
+var Neartothemaingate = new PANOLENS.ImagePanorama( "panoramas/Neartothemaingate.jpg" );
+			Neartothemaingate.addEventListener('progress', onProgress);
+			Neartothemaingate.addEventListener('load', function(e){
+				endLoading();
+			});
+			Neartothemaingate.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Neartothemaingate.addEventListener('click', function(e){
+			});
+
+var infospotNeartothemaingate0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNeartothemaingate0.position.set( 8.35, -772.56, -4939.14 );
+					Neartothemaingate.add(infospotNeartothemaingate0);
+infospotNeartothemaingate0.addEventListener('click', function(){
+ChangePanorama('maingate');
+});
+var infospotNeartothemaingate1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNeartothemaingate1.position.set( 4971.59, -303.96, -314.29 );
+					Neartothemaingate.add(infospotNeartothemaingate1);
+infospotNeartothemaingate1.addEventListener('click', function(){
+ChangePanorama('Neargirlshostel');
+});
+viewer.add( Neartothemaingate );
+var nearxerocenter = new PANOLENS.ImagePanorama( "panoramas/nearxerocenter.jpg" );
+			nearxerocenter.addEventListener('progress', onProgress);
+			nearxerocenter.addEventListener('load', function(e){
+				endLoading();
+			});
+			nearxerocenter.addEventListener('enter', function(e){
+				endLoading();
+			});
+			nearxerocenter.addEventListener('click', function(e){
+			});
+
+var infospotnearxerocenter0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotnearxerocenter0.position.set( -4958.29, -613.78, -1.57 );
+					nearxerocenter.add(infospotnearxerocenter0);
+infospotnearxerocenter0.addEventListener('click', function(){
+});
+var infospotnearxerocenter1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotnearxerocenter1.position.set( 685.27, -815.65, -4877.88 );
+					nearxerocenter.add(infospotnearxerocenter1);
+infospotnearxerocenter1.addEventListener('click', function(){
+ChangePanorama('furxerocenter');
+});
+var infospotnearxerocenter2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotnearxerocenter2.position.set( -612.91, -323.16, 4945.48 );
+					nearxerocenter.add(infospotnearxerocenter2);
+infospotnearxerocenter2.addEventListener('click', function(){
+ChangePanorama('Neartothemaingate');
+});
+viewer.add( nearxerocenter );
+var furxerocenter = new PANOLENS.ImagePanorama( "panoramas/furxerocenter.jpg" );
+			furxerocenter.addEventListener('progress', onProgress);
+			furxerocenter.addEventListener('load', function(e){
+				endLoading();
+			});
+			furxerocenter.addEventListener('enter', function(e){
+				endLoading();
+			});
+			furxerocenter.addEventListener('click', function(e){
+			});
+
+var infospotfurxerocenter0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotfurxerocenter0.position.set( 4930.15, -755.62, 218.18 );
+					furxerocenter.add(infospotfurxerocenter0);
+infospotfurxerocenter0.addEventListener('click', function(){
+ChangePanorama('civilbranch');
+});
+var infospotfurxerocenter1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotfurxerocenter1.position.set( -4912.29, -290.49, -830.60 );
+					furxerocenter.add(infospotfurxerocenter1);
+infospotfurxerocenter1.addEventListener('click', function(){
+ChangePanorama('nearxerocenter');
+});
+viewer.add( furxerocenter );
+var civilbranch = new PANOLENS.ImagePanorama( "panoramas/civilbranch.jpg" );
+			civilbranch.addEventListener('progress', onProgress);
+			civilbranch.addEventListener('load', function(e){
+				endLoading();
+			});
+			civilbranch.addEventListener('enter', function(e){
+				endLoading();
+			});
+			civilbranch.addEventListener('click', function(e){
+			});
+
+var infospotcivilbranch0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotcivilbranch0.position.set( 4746.96, -746.75, 1354.80 );
+					civilbranch.add(infospotcivilbranch0);
+infospotcivilbranch0.addEventListener('click', function(){
+ChangePanorama('Nearmechanicalhall');
+});
+var infospotcivilbranch1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotcivilbranch1.position.set( 1499.58, -519.97, -4735.92 );
+					civilbranch.add(infospotcivilbranch1);
+infospotcivilbranch1.addEventListener('click', function(){
+ChangePanorama('eng');
+});
+var infospotcivilbranch2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotcivilbranch2.position.set( -4882.47, -340.20, 1006.46 );
+					civilbranch.add(infospotcivilbranch2);
+infospotcivilbranch2.addEventListener('click', function(){
+ChangePanorama('furxerocenter');
+});
+viewer.add( civilbranch );
+var eng = new PANOLENS.ImagePanorama( "panoramas/eng.lift.jpg" );
+			eng.addEventListener('progress', onProgress);
+			eng.addEventListener('load', function(e){
+				endLoading();
+			});
+			eng.addEventListener('enter', function(e){
+				endLoading();
+			});
+			eng.addEventListener('click', function(e){
+			});
+
+var infospoteng0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospoteng0.position.set( 3039.16, -434.82, 3937.64 );
+					eng.add(infospoteng0);
+infospoteng0.addEventListener('click', function(){
+ChangePanorama('cafeteria');
+});
+var infospoteng1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospoteng1.position.set( 1926.50, -280.40, -4597.09 );
+					eng.add(infospoteng1);
+infospoteng1.addEventListener('click', function(){
+ChangePanorama('civilbranch');
+});
+var infospoteng2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospoteng2.position.set( 4879.57, -1029.63, 184.17 );
+					eng.add(infospoteng2);
+infospoteng2.addEventListener('click', function(){
+ChangePanorama('Nearcomplift');
+});
+viewer.add( eng );
+var cafeteria = new PANOLENS.ImagePanorama( "panoramas/cafeteria.jpg" );
+			cafeteria.addEventListener('progress', onProgress);
+			cafeteria.addEventListener('load', function(e){
+				endLoading();
+			});
+			cafeteria.addEventListener('enter', function(e){
+				endLoading();
+			});
+			cafeteria.addEventListener('click', function(e){
+			});
+
+var infospotcafeteria0 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+					infospotcafeteria0.position.set( 433.78, -746.59, 4919.92 );
+					cafeteria.add(infospotcafeteria0);
+infospotcafeteria0.addEventListener('click', function(){
+ChangePanorama('OutsideofLibrary');
+});
+var infospotcafeteria1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotcafeteria1.position.set( 1337.28, -777.66, 4747.87 );
+					cafeteria.add(infospotcafeteria1);
+infospotcafeteria1.addEventListener('click', function(){
+ChangePanorama('eng');
+});
+viewer.add( cafeteria );
+var futherfromcomplift = new PANOLENS.ImagePanorama( "panoramas/futherfromcomplift.jpg" );
+			futherfromcomplift.addEventListener('progress', onProgress);
+			futherfromcomplift.addEventListener('load', function(e){
+				endLoading();
+			});
+			futherfromcomplift.addEventListener('enter', function(e){
+				endLoading();
+			});
+			futherfromcomplift.addEventListener('click', function(e){
+			});
+
+var infospotfutherfromcomplift0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotfutherfromcomplift0.position.set( -737.47, -1807.10, -4593.42 );
+					futherfromcomplift.add(infospotfutherfromcomplift0);
+infospotfutherfromcomplift0.addEventListener('click', function(){
+ChangePanorama('Nearcomplift');
+});
+viewer.add( futherfromcomplift );
+var OutsideofLibrary = new PANOLENS.ImagePanorama( "panoramas/OutsideofLibrary.jpg" );
+			OutsideofLibrary.addEventListener('progress', onProgress);
+			OutsideofLibrary.addEventListener('load', function(e){
+				endLoading();
+			});
+			OutsideofLibrary.addEventListener('enter', function(e){
+				endLoading();
+			});
+			OutsideofLibrary.addEventListener('click', function(e){
+			});
+
+var infospotOutsideofLibrary0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotOutsideofLibrary0.position.set( 87.66, -516.37, -4965.31 );
+					OutsideofLibrary.add(infospotOutsideofLibrary0);
+infospotOutsideofLibrary0.addEventListener('click', function(){
+});
+var infospotOutsideofLibrary1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotOutsideofLibrary1.position.set( 4972.85, -463.21, 63.71 );
+					OutsideofLibrary.add(infospotOutsideofLibrary1);
+infospotOutsideofLibrary1.addEventListener('click', function(){
+ChangePanorama('insideLibrary');
+});
+viewer.add( OutsideofLibrary );
+var Nearcomplift = new PANOLENS.ImagePanorama( "panoramas/Nearcomplift.jpg" );
+			Nearcomplift.addEventListener('progress', onProgress);
+			Nearcomplift.addEventListener('load', function(e){
+				endLoading();
+			});
+			Nearcomplift.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Nearcomplift.addEventListener('click', function(e){
+			});
+
+var infospotNearcomplift0 = new PANOLENS.Infospot( 512, hotspotIcons[8].data, true );
+					infospotNearcomplift0.position.set( -4842.04, -966.03, 720.60 );
+					Nearcomplift.add(infospotNearcomplift0);
+infospotNearcomplift0.addEventListener('click', function(){
+ChangePanorama('futherfromcomplift');
+});
+var infospotNearcomplift1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNearcomplift1.position.set( -4952.06, -607.10, 135.56 );
+					Nearcomplift.add(infospotNearcomplift1);
+infospotNearcomplift1.addEventListener('click', function(){
+ChangePanorama('Nearseminarhall');
+});
+viewer.add( Nearcomplift );
+var Nearseminarhall = new PANOLENS.ImagePanorama( "panoramas/Nearseminarhall.jpg" );
+			Nearseminarhall.addEventListener('progress', onProgress);
+			Nearseminarhall.addEventListener('load', function(e){
+				endLoading();
+			});
+			Nearseminarhall.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Nearseminarhall.addEventListener('click', function(e){
+			});
+
+var infospotNearseminarhall0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNearseminarhall0.position.set( 3971.52, -2003.20, 2275.57 );
+					Nearseminarhall.add(infospotNearseminarhall0);
+infospotNearseminarhall0.addEventListener('click', function(){
+ChangePanorama('Compseminarhall');
+});
+var infospotNearseminarhall1 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotNearseminarhall1.position.set( 3903.66, -2113.39, -2289.81 );
+					Nearseminarhall.add(infospotNearseminarhall1);
+infospotNearseminarhall1.addEventListener('click', function(){
+});
+var infospotNearseminarhall2 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNearseminarhall2.position.set( 4980.04, -424.27, 14.63 );
+					Nearseminarhall.add(infospotNearseminarhall2);
+infospotNearseminarhall2.addEventListener('click', function(){
+ChangePanorama('compHodoffice');
+});
+viewer.add( Nearseminarhall );
+var Compseminarhall = new PANOLENS.ImagePanorama( "panoramas/Compseminarhall.jpg" );
+			Compseminarhall.addEventListener('progress', onProgress);
+			Compseminarhall.addEventListener('load', function(e){
+				endLoading();
+			});
+			Compseminarhall.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Compseminarhall.addEventListener('click', function(e){
+			});
+
+var infospotCompseminarhall0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotCompseminarhall0.position.set( -915.38, -1997.58, 4486.36 );
+					Compseminarhall.add(infospotCompseminarhall0);
+infospotCompseminarhall0.addEventListener('click', function(){
+ChangePanorama('Nearseminarhall');
+});
+viewer.add( Compseminarhall );
+var insideLibrary = new PANOLENS.ImagePanorama( "panoramas/insideLibrary.jpg" );
+			insideLibrary.addEventListener('progress', onProgress);
+			insideLibrary.addEventListener('load', function(e){
+				endLoading();
+			});
+			insideLibrary.addEventListener('enter', function(e){
+				endLoading();
+			});
+			insideLibrary.addEventListener('click', function(e){
+			});
+
+var infospotinsideLibrary0 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotinsideLibrary0.position.set( 33.01, -1727.11, -4686.40 );
+					insideLibrary.add(infospotinsideLibrary0);
+infospotinsideLibrary0.addEventListener('click', function(){
+});
+var infospotinsideLibrary1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotinsideLibrary1.position.set( -4899.84, -862.66, 431.00 );
+					insideLibrary.add(infospotinsideLibrary1);
+infospotinsideLibrary1.addEventListener('click', function(){
+ChangePanorama('OutsideofLibrary');
+});
+var infospotinsideLibrary2 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotinsideLibrary2.position.set( 4613.99, -1866.32, 434.69 );
+					insideLibrary.add(infospotinsideLibrary2);
+infospotinsideLibrary2.addEventListener('click', function(){
+});
+var infospotinsideLibrary3 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotinsideLibrary3.position.set( 2327.90, -2046.12, 3915.85 );
+					insideLibrary.add(infospotinsideLibrary3);
+infospotinsideLibrary3.addEventListener('click', function(){
+});
+var infospotinsideLibrary4 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotinsideLibrary4.position.set( 290.13, -1123.26, 4855.39 );
+					insideLibrary.add(infospotinsideLibrary4);
+infospotinsideLibrary4.addEventListener('click', function(){
+});
+viewer.add( insideLibrary );
+var Neargirlshostel = new PANOLENS.ImagePanorama( "panoramas/Neargirlshostel.jpg" );
+			Neargirlshostel.addEventListener('progress', onProgress);
+			Neargirlshostel.addEventListener('load', function(e){
+				endLoading();
+			});
+			Neargirlshostel.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Neargirlshostel.addEventListener('click', function(e){
+			});
+
+var infospotNeargirlshostel0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNeargirlshostel0.position.set( -529.50, 29.42, -4970.36 );
+					Neargirlshostel.add(infospotNeargirlshostel0);
+infospotNeargirlshostel0.addEventListener('click', function(){
+ChangePanorama('nearxerocenter');
+});
+var infospotNeargirlshostel1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNeargirlshostel1.position.set( 4942.33, -703.39, 103.80 );
+					Neargirlshostel.add(infospotNeargirlshostel1);
+infospotNeargirlshostel1.addEventListener('click', function(){
+ChangePanorama('Neartothemaingate');
+});
+viewer.add( Neargirlshostel );
+var Nearmechanicalhall = new PANOLENS.ImagePanorama( "panoramas/Nearmechanicalhall.jpg" );
+			Nearmechanicalhall.addEventListener('progress', onProgress);
+			Nearmechanicalhall.addEventListener('load', function(e){
+				endLoading();
+			});
+			Nearmechanicalhall.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Nearmechanicalhall.addEventListener('click', function(e){
+			});
+
+var infospotNearmechanicalhall0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotNearmechanicalhall0.position.set( 4866.42, -1054.66, 339.98 );
+					Nearmechanicalhall.add(infospotNearmechanicalhall0);
+infospotNearmechanicalhall0.addEventListener('click', function(){
+ChangePanorama('Machineshop');
+});
+var infospotNearmechanicalhall1 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotNearmechanicalhall1.position.set( 1619.17, -1450.98, 4493.46 );
+					Nearmechanicalhall.add(infospotNearmechanicalhall1);
+infospotNearmechanicalhall1.addEventListener('click', function(){
+ChangePanorama('Workshop');
+});
+var infospotNearmechanicalhall2 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotNearmechanicalhall2.position.set( 1068.58, -491.76, -4854.85 );
+					Nearmechanicalhall.add(infospotNearmechanicalhall2);
+infospotNearmechanicalhall2.addEventListener('click', function(){
+ChangePanorama('Fluidmechanicsandmachinerylab');
+});
+viewer.add( Nearmechanicalhall );
+var Machineshop = new PANOLENS.ImagePanorama( "panoramas/Machineshop.jpg" );
+			Machineshop.addEventListener('progress', onProgress);
+			Machineshop.addEventListener('load', function(e){
+				endLoading();
+			});
+			Machineshop.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Machineshop.addEventListener('click', function(e){
+			});
+
+var infospotMachineshop0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotMachineshop0.position.set( -4902.17, -891.22, 278.24 );
+					Machineshop.add(infospotMachineshop0);
+infospotMachineshop0.addEventListener('click', function(){
+ChangePanorama('Nearmechanicalhall');
+});
+viewer.add( Machineshop );
+var Workshop = new PANOLENS.ImagePanorama( "panoramas/Workshop.jpg" );
+			Workshop.addEventListener('progress', onProgress);
+			Workshop.addEventListener('load', function(e){
+				endLoading();
+			});
+			Workshop.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Workshop.addEventListener('click', function(e){
+			});
+
+var infospotWorkshop0 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+					infospotWorkshop0.position.set( 3038.12, -1781.41, 3538.27 );
+					Workshop.add(infospotWorkshop0);
+infospotWorkshop0.addEventListener('click', function(){
+ChangePanorama('Nearmechanicalhall');
+});
+viewer.add( Workshop );
+var Fluidmechanicsandmachinerylab = new PANOLENS.ImagePanorama( "panoramas/Fluidmechanicsandmachinerylab.jpg" );
+			Fluidmechanicsandmachinerylab.addEventListener('progress', onProgress);
+			Fluidmechanicsandmachinerylab.addEventListener('load', function(e){
+				endLoading();
+			});
+			Fluidmechanicsandmachinerylab.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Fluidmechanicsandmachinerylab.addEventListener('click', function(e){
+			});
+
+var infospotFluidmechanicsandmachinerylab0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotFluidmechanicsandmachinerylab0.position.set( 908.82, -748.51, -4853.23 );
+					Fluidmechanicsandmachinerylab.add(infospotFluidmechanicsandmachinerylab0);
+infospotFluidmechanicsandmachinerylab0.addEventListener('click', function(){
+});
+var infospotFluidmechanicsandmachinerylab1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotFluidmechanicsandmachinerylab1.position.set( -4280.35, -2189.91, 1357.23 );
+					Fluidmechanicsandmachinerylab.add(infospotFluidmechanicsandmachinerylab1);
+infospotFluidmechanicsandmachinerylab1.addEventListener('click', function(){
+ChangePanorama('Turbomachinelab');
+});
+var infospotFluidmechanicsandmachinerylab2 = new PANOLENS.Infospot( 512, hotspotIcons[1].data, true );
+					infospotFluidmechanicsandmachinerylab2.position.set( 972.87, -2830.18, 3996.48 );
+					Fluidmechanicsandmachinerylab.add(infospotFluidmechanicsandmachinerylab2);
+infospotFluidmechanicsandmachinerylab2.addEventListener('click', function(){
+});
+viewer.add( Fluidmechanicsandmachinerylab );
+var Turbomachinelab = new PANOLENS.ImagePanorama( "panoramas/Turbomachinelab.jpg" );
+			Turbomachinelab.addEventListener('progress', onProgress);
+			Turbomachinelab.addEventListener('load', function(e){
+				endLoading();
+			});
+			Turbomachinelab.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Turbomachinelab.addEventListener('click', function(e){
+			});
+
+var infospotTurbomachinelab0 = new PANOLENS.Infospot( 512, hotspotIcons[4].data, true );
+					infospotTurbomachinelab0.position.set( -715.13, -183.67, -4934.83 );
+					Turbomachinelab.add(infospotTurbomachinelab0);
+infospotTurbomachinelab0.addEventListener('click', function(){
+ChangePanorama('Fluidmechanicsandmachinerylab');
+});
+viewer.add( Turbomachinelab );
+var Concertetechnologylab = new PANOLENS.ImagePanorama( "panoramas/Concertetechnologylab.jpg" );
+			Concertetechnologylab.addEventListener('progress', onProgress);
+			Concertetechnologylab.addEventListener('load', function(e){
+				endLoading();
+			});
+			Concertetechnologylab.addEventListener('enter', function(e){
+				endLoading();
+			});
+			Concertetechnologylab.addEventListener('click', function(e){
+			});
+
+viewer.add( Concertetechnologylab );
+var compHodoffice = new PANOLENS.ImagePanorama( "panoramas/compHodoffice.jpg" );
+			compHodoffice.addEventListener('progress', onProgress);
+			compHodoffice.addEventListener('load', function(e){
+				endLoading();
+			});
+			compHodoffice.addEventListener('enter', function(e){
+				endLoading();
+			});
+			compHodoffice.addEventListener('click', function(e){
+			});
+
+var infospotcompHodoffice0 = new PANOLENS.Infospot( 512, hotspotIcons[3].data, true );
+					infospotcompHodoffice0.position.set( -268.41, -689.94, 4935.29 );
+					compHodoffice.add(infospotcompHodoffice0);
+infospotcompHodoffice0.addEventListener('click', function(){
+ChangePanorama('lab1');
+});
+var infospotcompHodoffice1 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotcompHodoffice1.position.set( -635.53, -899.85, 4868.82 );
+					compHodoffice.add(infospotcompHodoffice1);
+infospotcompHodoffice1.addEventListener('click', function(){
+ChangePanorama('FirstLabfromHODoffice');
+});
+viewer.add( compHodoffice );
+var FirstLabfromHODoffice = new PANOLENS.ImagePanorama( "panoramas/FirstLabfromHODoffice.jpg" );
+			FirstLabfromHODoffice.addEventListener('progress', onProgress);
+			FirstLabfromHODoffice.addEventListener('load', function(e){
+				endLoading();
+			});
+			FirstLabfromHODoffice.addEventListener('enter', function(e){
+				endLoading();
+			});
+			FirstLabfromHODoffice.addEventListener('click', function(e){
+			});
+
+var infospotFirstLabfromHODoffice0 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotFirstLabfromHODoffice0.position.set( 4119.62, -1284.12, 2510.40 );
+					FirstLabfromHODoffice.add(infospotFirstLabfromHODoffice0);
+infospotFirstLabfromHODoffice0.addEventListener('click', function(){
+});
+viewer.add( FirstLabfromHODoffice );
+var lab1 = new PANOLENS.ImagePanorama( "panoramas/lab1.jpg" );
+			lab1.addEventListener('progress', onProgress);
+			lab1.addEventListener('load', function(e){
+				endLoading();
+			});
+			lab1.addEventListener('enter', function(e){
+				endLoading();
+			});
+			lab1.addEventListener('click', function(e){
+			});
+
+var infospotlab10 = new PANOLENS.Infospot( 512, hotspotIcons[9].data, true );
+					infospotlab10.position.set( -1858.96, -1702.22, -4311.02 );
+					lab1.add(infospotlab10);
+infospotlab10.addEventListener('click', function(){
+});
+viewer.add( lab1 );
+$(document).ready(function(){ ChangePanorama('maingate'); });
+
+/*panoramas-end*/
+            
+			var stilloading = true;
+			function onProgress ( event ) {
+				
+				progress = event.progress.loaded / event.progress.total * 100;
+				console.log("Loading panorama: " + progress + " ... ");
+				$("#loadingperc").html(Math.ceil(progress) + "%");
+				if(Math.ceil(progress) >= 100){
+					endLoading();
+					stilloading = false;
+
+				}else{
+				    clearTimeout(elTimer);
+					stilloading = true;
+					$("#loading").show();
+				}
+			}
+			
+			var elTimer;
+			function endLoading(){
+			    clearTimeout(elTimer);
+				if(stilloading == false){
+					elTimer = setTimeout(function(){
+						$("#loading").fadeOut();
+					}, 750);
+					
+				}
+			}
+			
+			function hideTemp(){
+				$("#tmp").fadeOut();
+				setTimeout(function(){
+					$("#tmpcontent").html("");
+				},1000);
+			}
+			
+			function showMedia(type, content){
+				switch(type){
+					case 1 :
+						//Image
+						$("#tmpcontent").html("<img src='"+content+"' style='width: 100%;'>");
+						$("#tmp").fadeIn();
+						break;
+					case 2 :
+						//Video
+						$("#tmpcontent").html("<video id='webvideo' controls autoplay style='width: 100%; height: 100%;'><source src='" +content+ "' type='video/mp4'> Your browser does not support the video tag. </video>");
+						$("#tmp").fadeIn();
+						break;
+					case 3 :
+						//Audio
+						$("#tmpcontent").html("<audio controls style='width: 100%;'><source src='"+content+"' type='audio/ogg'>Your browser does not support the audio tag.</audio>");
+						$("#tmp").fadeIn();
+						break;
+					case 4 :
+						//PDF
+						$("#tmpcontent").html("<iframe src='pdfjs/web/viewer.html?file=../../"+content+"' style='width: 100%; height: 99%;'></iframe>");
+						$("#tmp").fadeIn();
+						break;
+				}
+			}
+			
+			
+			
+			//Update Callback
+			viewer.addUpdateCallback(function(){
+				
+				/*viewerupdatecallback*/
+if(viewer.panorama == maingate){
+}
+
+if(viewer.panorama == Neartothemaingate){
+}
+
+if(viewer.panorama == nearxerocenter){
+}
+
+if(viewer.panorama == furxerocenter){
+}
+
+if(viewer.panorama == civilbranch){
+}
+
+if(viewer.panorama == eng){
+}
+
+if(viewer.panorama == cafeteria){
+}
+
+if(viewer.panorama == futherfromcomplift){
+}
+
+if(viewer.panorama == OutsideofLibrary){
+}
+
+if(viewer.panorama == Nearcomplift){
+}
+
+if(viewer.panorama == Nearseminarhall){
+}
+
+if(viewer.panorama == Compseminarhall){
+}
+
+if(viewer.panorama == insideLibrary){
+}
+
+if(viewer.panorama == Neargirlshostel){
+}
+
+if(viewer.panorama == Nearmechanicalhall){
+}
+
+if(viewer.panorama == Machineshop){
+}
+
+if(viewer.panorama == Workshop){
+}
+
+if(viewer.panorama == Fluidmechanicsandmachinerylab){
+}
+
+if(viewer.panorama == Turbomachinelab){
+}
+
+if(viewer.panorama == Concertetechnologylab){
+}
+
+if(viewer.panorama == compHodoffice){
+}
+
+if(viewer.panorama == FirstLabfromHODoffice){
+}
+
+if(viewer.panorama == lab1){
+}
+/*viewerupdatecallback-end*/
+				
+				
+			});
+			
+			
+			
+			var hotspotsvisible = true;
+			function ShowMyInfospot(hs, elid){
+				var thehs = toScreenPosition(hs);
+				if(thehs.z < 1){
+					$("#" + elid).css({
+						"top" : (thehs.y - ($("#" + elid).height()/2)) + "px",
+						"left" : (thehs.x - ($("#" + elid).width()/2)) + "px",
+					});
+					if(hotspotsvisible)
+						$("#" + elid).show();
+				}else{
+					$("#" + elid).hide();
+				}
+				
+			}
+			
+			function toScreenPosition(obj)
+			{
+				var vector = new THREE.Vector3();
+				var widthHalf = 0.5 * innerWidth;
+				var heightHalf = 0.5 * innerHeight;
+				
+				//obj.updateMatrixWorld();				
+				vector.setFromMatrixPosition(obj.matrixWorld);
+				
+				
+				vector.project(viewer.camera);
+
+				vector.x = ( vector.x * widthHalf ) + widthHalf;
+				vector.y = - ( vector.y * heightHalf ) + heightHalf;
+
+				
+				return { 
+					x: vector.x,
+					y: vector.y,
+					z: vector.z,
+				};
+
+			};
+			
+			var currentPanorama;
+			function ChangePanorama(panorama){
+				currentPanorama = panorama;
+				HideInfospots(); 
+				$("#loading").fadeIn();
+				//$(".customhotspot").fadeOut();
+				setTimeout(function(){
+					viewer.setPanorama(window[panorama]);
+				}, 100);
+				setTimeout(function(){
+					$("#" + panorama).fadeIn();
+				}, 1000);
+				
+			}
+			
+			
+			
+			
+			
+			function HideInfospots(){
+				$(".customhotspot").fadeOut();
+			}
+
+			/*customjs*//*customjs-end*/
+        </script>
+	</body>
+</html>
